@@ -6,7 +6,7 @@
     </header>
 
     <div class="body">
-      <div class="body__modal">
+      <div class="body__modal" [ngClass]={show:!showModal}>
         <div class="body__modal_backdrop"></div>
         <div class="body__modal_window">
           <h4 class="modal__title modal_item">Выберите город</h4>
@@ -19,6 +19,8 @@
       <div class="body__content">
         <p>Добавьте город</p>
       </div>
+
+      <app-card></app-card>
       
     </div>
 

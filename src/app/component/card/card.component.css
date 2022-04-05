@@ -1,0 +1,36 @@
+.card {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 280px;
+    background-color: bisque;
+    border-radius: 10px;
+}
+.card_item{
+    font-size: 2rem;
+    padding: 10px;
+}
+.card__wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+}
+.card__iconDelete {
+    display: none;
+}
+.card__iconDelete {
+    position: absolute;
+    padding: 5px;
+    top: 10px;
+    right: 15px;
+    color: red;
+    font-size: 1.5rem;
+}
+.card:hover {
+    background-color: rgb(250, 184, 104);
+    transform: scale(1.05);
+}
+.card:hover .card__iconDelete{
+    display: inline;   
+}
