@@ -55,10 +55,6 @@ button {
     display: none;
 }
 
-/* .body__modal {
-    display: none;
-} */
-
 .body__modal_backdrop {
     position: fixed;
     top: 0;

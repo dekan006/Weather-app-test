@@ -1,6 +1,6 @@
 <div class="wrapper">
     <header class="header">
-        <button class="button header__button_add"><i class="fas fa-plus"></i> Добавить город</button>
+        <button class="button header__button_add" (click)="showModal=true"><i class="fas fa-plus"></i> Добавить город</button>
         <button class="button header__button_start"><i class="fas fa-play"></i> Отслеживать</button>
         <button class="button header__button_stop"> <i class="fas fa-stop"></i> Остановить</button>
     </header>
@@ -10,17 +10,29 @@
         <div class="body__modal_backdrop"></div>
         <div class="body__modal_window">
           <h4 class="modal__title modal_item">Выберите город</h4>
-          <input type="text" class="modal_item">
-          <button class="modal__button modal_item">Закрыть</button>
-          <div class="modal__button_close"><i class="fas fa-times"></i></div>  
+          <ng-select  placeholder="Выберите город" (change)="addCardCity($event)">
+            <ng-option *ngFor="let city of cities" [value]="city">{{city}}</ng-option>
+          </ng-select>
+          <button class="modal__button modal_item" (click)="showModal=false">Закрыть</button>
+          <div class="modal__button_close" (click)="showModal=false"><i class="fas fa-times"></i></div>  
         </div>
       </div>
     
       <div class="body__content">
-        <p>Добавьте город</p>
+        <div *ngFor="let city of cardCities">
+          <app-card [city]="city"></app-card>
+        </div>
+
+        <ng-template #viewCityCard>
+          <p>Добавьте город</p>
+        </ng-template>
+        
+
+
+
       </div>
 
-      <app-card></app-card>
+
       
     </div>
 
