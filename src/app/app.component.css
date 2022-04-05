@@ -1,0 +1,125 @@
+.wrapper{
+    display: flex;
+	flex-direction: column;
+    justify-content: flex-start;
+    height: 100vh;  
+    width: 100%;   
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #ffd971;
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: 9%;
+}
+
+button {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    min-width: 180px;
+    border-radius: 10px;
+    border: 1px solid #f7f7f7;
+    color: #ffffff;
+    font-size: 1rem;
+}
+.header__button_add {
+    background-color: #0275d8;
+}
+
+.header__button_start {
+    background-color: #5cb85c;
+}
+
+.header__button_stop {
+    background-color: #d9534f;
+}
+
+.fas {
+    margin-right: 10px;
+}
+
+.body {
+    margin-top: 20px; 
+    width: 100%;
+}
+
+.body__modal_backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.body__modal_window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 20px;
+    min-width: 300px;
+    padding: 2rem 3rem;
+    background: #fefefe;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, 0);
+    z-index: 10;
+}
+
+.modal_item {
+    margin-top: 30px;
+}
+
+.modal__title {
+    text-align: center;
+    font-size: 1.5rem;
+}
+.modal__button {
+    background-color: #0275d8;
+}
+
+.modal__button_close {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    font-size: 2rem;
+    padding: 10px;
+    color: #000000;
+    
+}
+
+
+
+
+.body__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.body__content p {
+    font-size: 2rem;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0275d8;
+    color: white;
+    min-height: 8vh; 
+}
