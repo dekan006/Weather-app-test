@@ -1,15 +1,22 @@
 <div class="card">
     <div class="card__wrapper">
         <div class="card_item ">{{city}}</div>
-        <div class="card_item "[innerHTML]="iconHtml"></div>
-        <div class="card_item "><i class="fa-solid fa-temperature-half"></i> {{temp}} °C</div>
-        <div class="card__other card_item">
-            <div class=""><i class="fa-solid fa-droplet"></i> {{humidity}} %</div>
-            <div class=""><i class="fa-solid fa-wind"></i> {{wind}} m/s </div>
+        <div class="card__updateData" *ngIf="updateData">
+            <div class="card_item card__item_icon"[innerHTML]="iconHtml"></div>
+            <div class="card_item "><i class="fa-solid fa-temperature-half"></i> {{temp}} °C</div>
+            <div class="card_item card__item_other">
+                <div class=""><i class="fa-solid fa-droplet"></i> {{humidity}} %</div>
+                <div class=""><i class="fa-solid fa-wind"></i> {{wind}} m/s </div>
+            </div>
         </div>
-        
-        
-        <div class="card__iconDelete" (click)="weatherService.deleteCardCity(city)"><i class="fas fa-trash" ></i></div>
+
+        <div class="card__noData" *ngIf="!updateData">
+            <div class="card__noData_item">
+                Нет данных
+            </div>
+        </div>
+
+        <div class="card__iconDelete" (click)="weatherService.showModalDeleteCity(city)"><i class="fas fa-trash" ></i></div>
     </div>
 </div>
 

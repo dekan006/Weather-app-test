@@ -52,6 +52,15 @@
     background-color: #d9534f;
 }
 
+.disabled {
+    background-color: #808080; 
+}
+
+.disabled:hover {
+    transform: scale(1.0);
+    cursor: default; 
+}
+
 .fas .header{
     margin-right: 10px;
 }
@@ -59,7 +68,7 @@
 .body {
     width: 100%;
 }
-.show {
+.display_none {
     display: none;
 }
 
@@ -136,6 +145,17 @@
     margin-top: 50px;
     font-size: 2.5rem;
     color:rgba(0, 0, 0, 0.3)
+}
+
+.modal__button_del_group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.button_del {
+    background-color: #d9534f;
 }
 
 .footer {

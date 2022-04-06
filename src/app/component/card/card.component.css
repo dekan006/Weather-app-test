@@ -19,24 +19,33 @@
     flex-direction: column;
     justify-content:space-between;
     align-items:center;
+    min-height: 270px;
 }
 
-.card__other {
+.card__updateData {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom: 10px;
+}
+.card__item_icon {
+    font-size: 3rem;
+}
+.card__item_other {
     font-size: 1.2rem;
     display: flex;
     flex-direction: row;
     justify-content: space-around;   
 }
-.card__other .fa-solid {
+.card__item_other .fa-solid {
     margin-left: 30px;
     margin-bottom: 20px;
 }
 
-
 .card__iconDelete {
     display: none;
-}
-.card__iconDelete {
     position: absolute;
     padding: 5px;
     top: 10px;
@@ -57,3 +66,16 @@
     cursor: pointer;
 }
 
+.card__noData {
+    height: 200px;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+
+
+    
+ 
