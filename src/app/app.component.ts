@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { WeatherService } from './service/weather.service';
 
 
 @Component({
@@ -9,27 +10,28 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit{
   title = 'weather-app-test';
-  showModal: boolean = true;
-  cities: Array<string> = [];
-  cardCities : Array<string> =[];
-
+  showModal: boolean = false;
+  developDate: number = 2018;
+  dataTodayYear = new Date().getFullYear();
+  copyrightDate: string = '';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    public weatherService: WeatherService
     ) { }
 
   ngOnInit(): void {
-    this.http.get<Object>('assets/cities.json').subscribe((res: any) =>
-      { this.cities = res.cities }
-      );
+    if (this.developDate == this.dataTodayYear) {
+      this.copyrightDate = this.dataTodayYear.toString();
+    }
+    if (this.developDate < this.dataTodayYear) {
+      this.copyrightDate = `${this.developDate} - ${this.dataTodayYear}`;
+    }
+    if (this.developDate > this.dataTodayYear) {
+      this.copyrightDate = this.developDate.toString();
+    }
   }
 
-  addCardCity(city: string) {
-    if (city) {
-      this.cardCities.push(city);
-    }
-    console.log(this.cardCities)
-  }
 
 
 }

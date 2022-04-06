@@ -10,8 +10,8 @@
         <div class="body__modal_backdrop"></div>
         <div class="body__modal_window">
           <h4 class="modal__title modal_item">Выберите город</h4>
-          <ng-select  placeholder="Выберите город" (change)="addCardCity($event)">
-            <ng-option *ngFor="let city of cities" [value]="city">{{city}}</ng-option>
+          <ng-select  placeholder="Выберите город" (change)="weatherService.addCardCity($event)">
+            <ng-option *ngFor="let city of weatherService.cities" [value]="city">{{city}}</ng-option>
           </ng-select>
           <button class="modal__button modal_item" (click)="showModal=false">Закрыть</button>
           <div class="modal__button_close" (click)="showModal=false"><i class="fas fa-times"></i></div>  
@@ -19,26 +19,21 @@
       </div>
     
       <div class="body__content">
-        <div *ngFor="let city of cardCities">
+        <div class="body__title" *ngIf="weatherService.cardCities.length  == 0">
+          <p>Добавьте город</p>
+        </div>
+
+        <div *ngFor="let city of weatherService.cardCities">
           <app-card [city]="city"></app-card>
         </div>
 
-        <ng-template #viewCityCard>
-          <p>Добавьте город</p>
-        </ng-template>
-        
-
-
-
       </div>
 
-
-      
     </div>
 
     <footer class="footer">
         <div class="footer__content">
-          <p>Copyright© 2022</p>
+          <p>Copyright© {{copyrightDate}}</p>
         </div>
     </footer>
 </div>

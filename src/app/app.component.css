@@ -102,9 +102,6 @@ button {
     
 }
 
-
-
-
 .body__content {
     display: flex;
     flex-direction: row;
@@ -112,8 +109,10 @@ button {
     justify-content: center;
 }
 
-.body__content p {
-    font-size: 2rem;
+.body__title {
+    margin-top: 50px;
+    font-size: 2.5rem;
+    color:rgba(0, 0, 0, 0.3)
 }
 
 .footer {
