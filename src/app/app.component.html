@@ -13,7 +13,7 @@
           <ng-select  placeholder="Выберите город" (change)="weatherService.addCardCity($event)">
             <ng-option *ngFor="let city of weatherService.cities" [value]="city">{{city}}</ng-option>
           </ng-select>
-          <button class="modal__button modal_item" (click)="showModal=false">Закрыть</button>
+          <button class="button modal__button modal_item" (click)="showModal=false">Закрыть</button>
           <div class="modal__button_close" (click)="showModal=false"><i class="fas fa-times"></i></div>  
         </div>
       </div>

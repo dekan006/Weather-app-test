@@ -1,0 +1,37 @@
+{
+    "cities": [
+        "Minsk",
+        "Moscow",
+        "Kiev",
+        "Tokyo",
+        "Mexico City",
+        "Cairo",
+        "Beijing",
+        "New York",
+        "Istanbul",
+        "Manila",
+        "Los Angeles",
+        "Paris",
+        "Bangkok",
+        "London",
+        "Chicago",
+        "Kuala Lumpur",
+        "Madrid",
+        "Berlin",
+        "Miami",
+        "Barcelona"
+    ],
+    "iconHtml": {
+        "01": "fa-solid fa-sun",
+        "02": "fa-solid fa-cloud-sun",
+        "03": "fa-solid fa-cloud",
+        "04": "fa-solid fa-cloud-sun-rain",
+        "09": "fa-solid fa-cloud-rain",
+        "10": "fa-solid fa-cloud-showers-heavy",
+        "11": "fa-solid fa-cloud-bolt",
+        "13": "fa-solid fa-snowflake",
+        "50": "fa-solid fa-smog",
+        "rain": "fa-solid fa-cloud-rain"
+    }
+    
+}

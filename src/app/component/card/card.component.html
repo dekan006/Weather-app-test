@@ -1,8 +1,14 @@
 <div class="card">
     <div class="card__wrapper">
-        <div class="card_item card__nameCity">{{city}}</div>
-        <div class="card_item card__iconWeather"><i class="fas fa-cloud"></i></div>
-        <div class="card_item card__currentTemperature">20 °C</div>
+        <div class="card_item ">{{city}}</div>
+        <div class="card_item "[innerHTML]="iconHtml"></div>
+        <div class="card_item "><i class="fa-solid fa-temperature-half"></i> {{temp}} °C</div>
+        <div class="card__other card_item">
+            <div class=""><i class="fa-solid fa-droplet"></i> {{humidity}} %</div>
+            <div class=""><i class="fa-solid fa-wind"></i> {{wind}} m/s </div>
+        </div>
+        
+        
         <div class="card__iconDelete" (click)="weatherService.deleteCardCity(city)"><i class="fas fa-trash" ></i></div>
     </div>
 </div>

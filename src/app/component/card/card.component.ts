@@ -7,6 +7,11 @@ import { WeatherService } from 'src/app/service/weather.service';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
+  temp: number = 0;
+  iconNumber: string ='';
+  iconHtml: string = '';
+  humidity: number = 0;
+  wind: number = 0;
 
   @Input() city: string ='';
 
@@ -15,7 +20,13 @@ export class CardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.weatherService.getWeatherCity(this.city).subscribe( (res: any) => {
+      this.temp = this.weatherService.convertKelvinToCelsius(res.main.temp);
+      this.humidity = res.main.humidity;
+      this.wind = res.wind.speed;
+      this.iconNumber = res.weather[0].icon.slice(0,2);
+      this.iconHtml = `<i class="${this.weatherService.iconHtml[this.iconNumber]}"></i>`;
+    })
   }
   
   deleteCardCity(city: string) {

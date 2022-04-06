@@ -7,6 +7,11 @@ import { HttpClient } from '@angular/common/http';
 export class WeatherService {
   cities: Array<string> = [];
   cardCities: Array<string> =[];
+  iconHtml: any;
+
+  APIKey: string = "3b18db63a72ef2bceaa813d49d7f0dd8";
+  url: string = "https://api.openweathermap.org/data/2.5/weather?";
+
   constructor(
     private http: HttpClient
   ) 
@@ -17,12 +22,15 @@ export class WeatherService {
       }}
     );
 
-    this.http.get<Object>('assets/cities.json').subscribe((res: any) =>
+    this.http.get<Object>('assets/config.json').subscribe((res: any) =>
         { this.cities = res.cities.filter((el: string) => 
           !this.cardCities.includes(el));
 
           localStorage.setItem('cities', this.cities.join());
           console.log(this.cities);
+
+          this.iconHtml = res.iconHtml;
+          
     });     
   }
   
@@ -42,4 +50,13 @@ export class WeatherService {
     localStorage.setItem('cardCities', this.cardCities.join()); 
     localStorage.setItem('cities', this.cities.join());    
   }
+  
+  getWeatherCity(city: string) {
+    return this.http.get(`${this.url}q=${city}&appid=${this.APIKey}`);
+  }
+
+  convertKelvinToCelsius(temp: number) {
+    return Math.round(temp - 273.15);
+  }
 }
+
