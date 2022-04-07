@@ -24,7 +24,7 @@
       <div class="body__modal" [ngClass]={display_none:!showModal}>
         <div class="body__modal_backdrop" (click)="showModal=false"></div>
         <div class="body__modal_window">
-          <h4 class="modal__title modal_item">Выберите город</h4>
+          <h4 class="modal__title modal_item">Выберете город</h4>
           <ng-select  placeholder="Выберите город" (change)="weatherService.addCardCity($event)">
             <ng-option *ngFor="let city of weatherService.cities" [value]="city">{{city}}</ng-option>
           </ng-select>
