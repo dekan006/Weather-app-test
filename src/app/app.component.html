@@ -21,7 +21,7 @@
     </header>
 
     <div class="body">
-      <div class="body__modal" [ngClass]={display_none:!showModal}>
+      <div class="body__modal" [ngClass]={display_none:!showModal} (window:keydown.esc)="showModal=false">
         <div class="body__modal_backdrop" (click)="showModal=false"></div>
         <div class="body__modal_window">
           <h4 class="modal__title modal_item">Выберете город</h4>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="body__modal" [ngClass]={display_none:!weatherService.showModalDel}>
-          <div class="body__modal_backdrop" (click)="weatherService.showModalDel=false"></div>
+          <div class="body__modal_backdrop" (click)="weatherService.showModalDel=false" (window:keydown.esc)="weatherService.showModalDel=false"></div>
           <div class="body__modal_window" >
             <p class="modal__title modal_item">Действительно хотите удалить город {{weatherService.deleteCity}}?</p>
             <div class="modal__button_del_group">
