@@ -16,7 +16,6 @@ export class CardComponent implements OnInit {
 
   @Input() city: string ='';
   
-
   constructor(
     public weatherService: WeatherService
   ) {
