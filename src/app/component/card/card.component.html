@@ -12,11 +12,11 @@
 
         <div class="card__noData" *ngIf="!updateData">
             <div class="card__noData_item">
-                Нет данных
+                <p>Нет данных</p>
             </div>
         </div>
 
-        <div class="card__iconDelete" (click)="weatherService.showModalDeleteCity(city)"><i class="fas fa-trash" ></i></div>
+        <div class="card__iconDelete" (click)="weatherService.showDialogDeleteCity(city)"><i class="fas fa-trash" ></i></div>
     </div>
 </div>
 

@@ -1,23 +1,43 @@
 <div class="wrapper">
     <header class="header">
-        <button class="button header__button_add" (click)="showModal=true"><i class="fas fa-plus"></i> Добавить город</button>
-        <button class="button header__button_start" (click)="weatherService.startInterval()"><i class="fas fa-play"></i> Отслеживать</button>
-        <button class="button header__button_stop" [disabled]="!weatherService.intervalRun" [ngClass]={disabled:!weatherService.intervalRun} (click)="weatherService.stopInterval()" > <i class="fas fa-stop"></i> Остановить</button>
+        <button class="button header__button_add" 
+                (click)="showModal=true">
+                <i class="fas fa-plus"></i>
+                 Добавить город
+        </button>
+        <button class="button header__button_start" 
+                [disabled]="weatherService.cardCities.length === 0" 
+                [class.disabled]="weatherService.cardCities.length == 0" 
+                (click)="weatherService.startInterval()">
+                <i class="fas fa-play"></i> 
+                Отслеживать
+        </button>
+        <button class="button header__button_stop" 
+                [disabled]="!weatherService.intervalRun" 
+                [ngClass]={disabled:!weatherService.intervalRun} 
+                (click)="weatherService.stopInterval()"> 
+                <i class="fas fa-stop"></i> Остановить
+        </button>
     </header>
 
     <div class="body">
       <div class="body__modal" [ngClass]={display_none:!showModal}>
-        <div class="body__modal_backdrop"></div>
+        <div class="body__modal_backdrop" (click)="showModal=false"></div>
         <div class="body__modal_window">
           <h4 class="modal__title modal_item">Выберите город</h4>
           <ng-select  placeholder="Выберите город" (change)="weatherService.addCardCity($event)">
             <ng-option *ngFor="let city of weatherService.cities" [value]="city">{{city}}</ng-option>
           </ng-select>
-          <button class="button modal__button modal_item" (click)="showModal=false">Закрыть</button>
-          <div class="modal__button_close" (click)="showModal=false"><i class="fas fa-times"></i></div>  
+          <button class="button modal__button modal_item" 
+                  (click)="showModal=false">Закрыть
+          </button>
+          <div class="modal__button_close" 
+                  (click)="showModal=false">
+                  <i class="fas fa-times"></i>
+          </div>  
         </div>
       </div>
-    
+         
       <div class="body__content">
         <div class="body__title" *ngIf="weatherService.cardCities.length  == 0">
           <p>Добавьте город</p>
@@ -28,14 +48,22 @@
         </div>
 
         <div class="body__modal" [ngClass]={display_none:!weatherService.showModalDel}>
-          <div class="body__modal_backdrop"></div>
-          <div class="body__modal_window">
-            <h4 class="modal__title modal_item">Действительно хотите удалить город {{weatherService.deleteCity}}?</h4>
+          <div class="body__modal_backdrop" (click)="weatherService.showModalDel=false"></div>
+          <div class="body__modal_window" >
+            <p class="modal__title modal_item">Действительно хотите удалить город {{weatherService.deleteCity}}?</p>
             <div class="modal__button_del_group">
-              <button class="button modal__button modal_item" (click)="weatherService.showModalDel=false">Отменить</button>
-              <button class="button modal__button modal_item button_del" (click)="weatherService.deleteCardCity(weatherService.deleteCity)">Удалить</button>
+              <button class="button modal__button modal_item" 
+                      (click)="weatherService.showModalDel=false">
+                      Отменить
+              </button>
+              <button class="button modal__button modal_item button_del" 
+                      (click)="weatherService.deleteCardCity(weatherService.deleteCity)">
+                      Удалить
+              </button>
             </div>
-            <div class="modal__button_close" (click)="weatherService.showModalDel=false"><i class="fas fa-times"></i></div>  
+            <div class="modal__button_close" (click)="weatherService.showModalDel=false">
+                  <i class="fas fa-times"></i>
+            </div>  
           </div>
         </div>
 

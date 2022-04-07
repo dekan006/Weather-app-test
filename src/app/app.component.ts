@@ -7,6 +7,7 @@ import { WeatherService } from './service/weather.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
+  
 })
 export class AppComponent implements OnInit{
   title = 'weather-app-test';
@@ -31,7 +32,5 @@ export class AppComponent implements OnInit{
       this.copyrightDate = this.developDate.toString();
     }
   }
-
-
-
+  
 }

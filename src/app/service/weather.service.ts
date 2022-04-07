@@ -46,7 +46,7 @@ export class WeatherService {
     }
   }
 
-  showModalDeleteCity(city: string) {
+  showDialogDeleteCity(city: string) {
     this.showModalDel = true;
     this.deleteCity = city;
   }

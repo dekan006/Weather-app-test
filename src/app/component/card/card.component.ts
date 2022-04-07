@@ -15,25 +15,24 @@ export class CardComponent implements OnInit {
   updateData: boolean = false;
 
   @Input() city: string ='';
+  
 
   constructor(
     public weatherService: WeatherService
-  ) { }
+  ) {
+    this.weatherService.interval$.subscribe( (res: void) => {
+      this.weatherService.getWeatherCity(this.city).subscribe( (res: any) => {
+          this.temp = this.weatherService.convertKelvinToCelsius(res.main.temp);
+          this.humidity = res.main.humidity;
+          this.wind = res.wind.speed;
+          this.iconNumber = res.weather[0].icon.slice(0,2);
+          this.iconHtml = `<i class="${this.weatherService.iconHtml[this.iconNumber]}"></i>`;
+          this.updateData = true;
+          })
+  })
+   }
 
   ngOnInit(): void {
-        this.weatherService.interval$.subscribe( res => {
-      this.weatherService.getWeatherCity(this.city).subscribe( (res: any) => {
-        this.temp = this.weatherService.convertKelvinToCelsius(res.main.temp);
-        this.humidity = res.main.humidity;
-        this.wind = res.wind.speed;
-        this.iconNumber = res.weather[0].icon.slice(0,2);
-        this.iconHtml = `<i class="${this.weatherService.iconHtml[this.iconNumber]}"></i>`;
-        this.updateData = true;
-      })
-    })
-  }
-  
-  deleteCardCity(city: string) {
-    console.log(city);
+        
   }
 }
