@@ -148,7 +148,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 100px;
+    align-items: center;
+    gap: 20px;
+    margin-top: 105px;
     margin-bottom: 100px;
 }
 
@@ -183,7 +185,7 @@
 
 @media (max-width: 616px) { 
     .body__content {
-        margin-top: 130px;
+        margin-top: 145px;
     } 
     .body__modal_window {
         min-width: 200px;
@@ -193,7 +195,7 @@
 
 @media (max-width: 416px) { 
     .body__content {
-        margin-top: 190px;
+        margin-top: 205px;
     } 
     .body__modal_window {
         min-width: 150px;
