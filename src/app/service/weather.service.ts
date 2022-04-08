@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { destroyPlatform, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { interval, Subject } from 'rxjs';
 
@@ -34,6 +34,7 @@ export class WeatherService {
 
             localStorage.setItem('cities', this.cities.join());
             this.iconHtml = res.iconHtml;
+            console.log('service', this.iconHtml);
         });  
   }
   
@@ -57,7 +58,7 @@ export class WeatherService {
         !this.cities.includes(el));
         localStorage.setItem('cardCities', this.cardCities.join()); 
         localStorage.setItem('cities', this.cities.join()); 
-    this.showModalDel = false; 
+    this.showModalDel = false;
   }
   
   getWeatherCity(city: string) {
