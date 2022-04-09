@@ -13,6 +13,7 @@
 }
 
 .card__wrapper {
+    height: 280px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -23,7 +24,6 @@
 }
 
 .card__updateData {
-    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content:space-between;
